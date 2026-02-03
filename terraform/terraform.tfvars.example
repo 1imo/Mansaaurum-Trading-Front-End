@@ -1,0 +1,14 @@
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is in .gitignore to keep your credentials safe
+
+# SMTP Authentication (REQUIRED)
+smtp_username = "your-smtp-username-here"
+smtp_password = "your-smtp-password-here"
+
+# Optional: Override defaults if needed
+# region = "eu-west-2"
+# postfix_host = "172.245.43.43"
+# postfix_port = 25
+# smtp_use_tls = true
+# smtp_from_email = "noreply@mansaaurum.capital"
+# smtp_to_email = "contact@mansaaurum.capital"

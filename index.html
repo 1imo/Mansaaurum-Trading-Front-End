@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mansaaurum Capital</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <nav>
+        <header>
+            <h1>MANSAAURUM CAPITAL</h1>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Enquiries</a></li>
+            </ul>
+        </header>
+    </nav>
+    <main>
+        <section class="section contact">
+            <h2>CONTACT US DIRECT</h2>
+            <p>Leave a means of contact and we will get back to you</p>
+            <form id="contactForm" action="#" method="POST">
+                <span>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required maxlength="100" minlength="3" pattern="^[a-zA-Z]+$">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required maxlength="100" minlength="3" pattern="^[a-zA-Z]+$">
+                </span>
+                <input type="email" id="email" name="email" placeholder="Email">
+                <span>
+                    <input type="text" id="countryCode" name="countryCode" placeholder="Country Code">
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                </span>
+                <textarea id="message" name="message" placeholder="Message" rows="3"></textarea>
+                <button type="submit">Submit Query</button>
+                <div id="formMessage" style="display: none; margin-top: 10px;"></div>
+            </form>
+        </section>
+        <section>
+            <section class="section about">
+                <h2>READY FOR SOME SUM?</h2>
+                <p>Trading in the green with Mansaaurum Capital</p>
+                <a href="#">
+                    <img src="assets/arrow.svg" alt="Go to about">
+                </a>
+            </section>
+            <section class="section hover">
+                <h2>£20K INVESTED</h2>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

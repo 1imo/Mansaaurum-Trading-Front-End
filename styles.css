@@ -1,0 +1,240 @@
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-stretch: condensed;
+    background-color: #ffffff;
+    width: 100%;
+    height: min(100vh, 100%);
+}
+
+nav,
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+header {
+    padding: 4rem 4rem 1rem;
+}
+
+header > ul {
+    display: flex;
+    column-gap: 3rem;
+}
+
+header > ul > li {
+    list-style: none;
+}
+
+header > h1 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+header > ul > li > a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+main {
+    width: 100%;
+    padding: 1rem 4rem 3rem;
+    display: flex;
+    column-gap: 2rem;
+    justify-content: space-between;
+}
+
+main > section {
+    width: 50%;
+}
+
+section > h2 {
+    font-size: 3.75rem;
+    line-height: 6rem;
+}
+
+section > p {
+    font-size: 1.875rem;
+    line-height: 3rem;
+    margin-top: 0.75rem;
+}
+
+.section.contact {
+    background-color: #B5E2FA;
+}
+
+.section.about {
+    background-color: #48BF84;
+}
+
+.section.hover {
+    background-color: #F092DD;
+}
+
+.section {
+    padding: 4rem 2rem;
+    border: 0.25rem solid black;
+    box-shadow: 1.5rem 1.5rem 0 0 black;
+}
+
+.contact > form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.contact > form > span > input,
+.contact > form > input,
+.contact > form > textarea {
+    background-color: #ffffff;
+    border: 0.25rem solid black;
+    padding: 1rem 1.5rem;
+    font-size: 1.875rem;
+    line-height: 3rem;
+    color: #000000;
+    font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-stretch: condensed;
+}
+
+.contact > form > span > input::placeholder,
+.contact > form > input::placeholder,
+.contact > form > textarea::placeholder {
+    color: #000000;
+    font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-stretch: condensed;
+}
+
+.contact > form > button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 0.25rem solid black;
+    padding: 1rem 2rem;
+    font-size: 1.875rem;
+    line-height: 3rem;
+    font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-stretch: condensed;
+}
+
+.contact > form > span {
+    display: flex;
+    width: 100%;
+    column-gap: 1.5rem;
+}
+
+.contact > form > span > input {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.contact > form > span:nth-of-type(2) > input:first-child {
+    flex: 1 1 0;
+}
+
+.contact > form > span:nth-of-type(2) > input:last-child {
+    flex: 2 1 0;
+}
+
+.contact > form > textarea {
+    resize: none;
+}
+
+main > section:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+main > section:nth-of-type(2) > section {
+    flex: 1;
+}
+
+main > section:nth-of-type(2) > section:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about {
+    height: min-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.about > a {
+    padding: 0.5rem;
+    background-color: #000;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.about > a > img {
+    height: 6rem;
+    width: 6rem;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 1200px) {
+    main {
+        flex-direction: column-reverse;
+        row-gap: 2rem;
+    }
+
+    main > section {
+        width: 100%;
+    }
+
+    .about > a {
+        margin-top: 4rem;
+    }
+}
+
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 12px;
+    }
+}
