@@ -2,6 +2,11 @@ const API_GATEWAY_URL = 'YOUR_API_GATEWAY_URL_HERE';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
+    const aboutNav = document.getElementById('aboutNav');
+    const enquiriesNav = document.getElementById('enquiriesNav');
+    const aboutCard = document.querySelector('.section.about');
+    const investedCard = document.querySelector('.section.hover');
+    const contactCard = document.querySelector('.section.contact');
 
     if (form) {
         form.addEventListener('submit', async function(e) {
@@ -48,6 +53,43 @@ document.addEventListener('DOMContentLoaded', function() {
                     submitButton.textContent = originalButtonText;
                 }, 2000);
             }
+        });
+    }
+
+    // Helper to play the push + bounce animation on a card
+    function playCardAnimation(card) {
+        if (!card) return;
+        card.classList.remove('card-animate-bounce');
+        // Force reflow so animation restarts
+        // eslint-disable-next-line no-void
+        void card.offsetWidth;
+        card.classList.add('card-animate-bounce');
+    }
+
+    // About: first READY FOR SOME SUM, then £20K INVESTED
+    if (aboutNav) {
+        aboutNav.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!aboutCard || !investedCard) return;
+
+            playCardAnimation(aboutCard);
+
+            aboutCard.addEventListener(
+                'animationend',
+                function handler() {
+                    aboutCard.removeEventListener('animationend', handler);
+                    playCardAnimation(investedCard);
+                }
+            );
+        });
+    }
+
+    // Enquiries: CONTACT US DIRECT card
+    if (enquiriesNav) {
+        enquiriesNav.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!contactCard) return;
+            playCardAnimation(contactCard);
         });
     }
 });

@@ -50,6 +50,12 @@ header > ul > li > a {
     color: #000000;
     font-size: 1.25rem;
     line-height: 2rem;
+    outline: none;
+}
+
+header > ul > li > a:focus-visible {
+    outline: 0.15rem solid #0066ff;
+    outline-offset: 0.2rem;
 }
 
 main {
@@ -69,7 +75,8 @@ section > h2 {
     line-height: 6rem;
 }
 
-section > p {
+section > p,
+section > h3 {
     font-size: 1.875rem;
     line-height: 3rem;
     margin-top: 0.75rem;
@@ -255,4 +262,27 @@ html {
     html {
         font-size: 12px;
     }
+}
+
+@keyframes card-push-bounce {
+    0% {
+        transform: translate(0, 0);
+        box-shadow: 1.5rem 1.5rem 0 0 black;
+    }
+    35% {
+        transform: translate(1.5rem, 1.5rem);
+        box-shadow: 0 0 0 0 black;
+    }
+    65% {
+        transform: translate(-0.5rem, -0.5rem);
+        box-shadow: 2rem 2rem 0 0 black;
+    }
+    100% {
+        transform: translate(0, 0);
+        box-shadow: 1.5rem 1.5rem 0 0 black;
+    }
+}
+
+.card-animate-bounce {
+    animation: card-push-bounce 0.6s ease-out;
 }
