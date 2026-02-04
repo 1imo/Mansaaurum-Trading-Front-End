@@ -26,14 +26,13 @@
                     <input type="text" id="firstName" name="firstName" placeholder="First Name" required maxlength="100" minlength="3" pattern="^[a-zA-Z]+$">
                     <input type="text" id="lastName" name="lastName" placeholder="Last Name" required maxlength="100" minlength="3" pattern="^[a-zA-Z]+$">
                 </span>
-                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="email" id="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                 <span>
-                    <input type="text" id="countryCode" name="countryCode" placeholder="Country Code">
-                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                    <input type="text" id="countryCode" name="countryCode" placeholder="Country Code" required pattern="^\+[1-9]\d{0,3}$" minlength="2" maxlength="5">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required pattern="^[\d\s\-\(\)]+$" minlength="7" maxlength="20">
                 </span>
-                <textarea id="message" name="message" placeholder="Message" rows="3"></textarea>
+                <textarea id="message" name="message" placeholder="Message" rows="3" required minlength="10" maxlength="1000"></textarea>
                 <button type="submit">Submit Query</button>
-                <div id="formMessage" style="display: none; margin-top: 10px;"></div>
             </form>
         </section>
         <section>
