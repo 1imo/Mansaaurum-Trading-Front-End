@@ -1,4 +1,4 @@
-const API_GATEWAY_URL = 'YOUR_API_GATEWAY_URL_HERE';
+const API_GATEWAY_URL = 'https://kgktx1joq3.execute-api.eu-west-2.amazonaws.com/prod/contact';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
