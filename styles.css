@@ -87,11 +87,11 @@ section > h3 {
 }
 
 .section.about {
-    background-color: #48BF84;
+    background-color: #F8C537;
 }
 
 .section.hover {
-    background-color: #F092DD;
+    background-color: #FF928B;
 }
 
 .section {
@@ -185,22 +185,33 @@ main > section:nth-of-type(2) > section:nth-of-type(2) {
     flex-direction: column;
 }
 
-.about > a {
-    padding: 0.5rem;
+.about > div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.badge {
+    padding: 1rem;
     background-color: #000;
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    align-self: flex-end;
-    margin-top: auto;
 }
 
-.about > a > img {
+.badge > img {
     height: 6rem;
     width: 6rem;
-    transform: rotate(-45deg);
+}
+
+.about > div > p {
+    margin: 0;
+    font-size: 1.875rem;
+    line-height: 3rem;
 }
 
 @media (max-width: 1200px) {
@@ -225,6 +236,10 @@ html {
 @media (max-width: 1200px) {
     html {
         font-size: 15px;
+    }
+
+    .about > div {
+        margin-top: 4rem;
     }
 }
 

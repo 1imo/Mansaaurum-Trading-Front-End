@@ -4,6 +4,8 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/
 COPY scripts.js /usr/share/nginx/html/
 COPY styles.css /usr/share/nginx/html/
+COPY sitemap.xml /usr/share/nginx/html/
+COPY robots.txt /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 # Create custom nginx config to run on port 4003

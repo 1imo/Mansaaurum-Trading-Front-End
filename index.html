@@ -25,6 +25,43 @@
     <!-- Styles & Scripts -->
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Mansaaurum Capital",
+      "legalName": "Mansa Aurum Capital Ltd",
+      "url": "https://mansaaurumcapital.com",
+      "logo": "https://mansaaurumcapital.com/assets/logo.png",
+      "description": "A private investment trading firm providing active trading and investment strategies focused on consistent growth and risk-managed returns.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "124-128 City Road",
+        "addressLocality": "London",
+        "postalCode": "EC1V 2NX",
+        "addressCountry": "GB"
+      },
+      "foundingDate": "2026-01-28",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "1-10"
+      },
+      "areaServed": "GB",
+      "serviceType": "Investment Management",
+      "sameAs": []
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4RQ07KFYT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K4RQ07KFYT');
+    </script>
 </head>
 <body>
     <nav>
@@ -57,13 +94,16 @@
         <section>
             <section class="section about">
                 <h2>READY FOR SOME SUM?</h2>
-                <p>Trading in the green with Mansaaurum Capital</p>
-                <a href="#">
-                    <img src="assets/arrow.svg" alt="Go to about">
-                </a>
+                <p>Gold at Mansaaurum Capital</p>
+                <div>
+                    <div class="badge">
+                        <img src="assets/badge.png" alt="Mansaaurum Capital Badge">
+                    </div>
+                    <p>A PRIVATE INVESTMENT FIRM</p>
+                </div>
             </section>
             <section class="section hover">
-                <h3>A PRIVATE INVESTMENT TRADING FIRM</h3>
+                <h3>WHERE PRICE MOVES PRECISELY</h3>
             </section>
         </section>
     </main>
