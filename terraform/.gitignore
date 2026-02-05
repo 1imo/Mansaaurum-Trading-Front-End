@@ -5,3 +5,6 @@
 .terraform.lock.hcl
 *.tfvars
 !variables.tf
+terraform.sh
+tfplan
+*.tfplan

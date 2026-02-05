@@ -1,14 +1,15 @@
 # Copy this file to terraform.tfvars and fill in your values
 # terraform.tfvars is in .gitignore to keep your credentials safe
 
-# SMTP Authentication (REQUIRED)
-smtp_username = "your-smtp-username-here"
-smtp_password = "your-smtp-password-here"
+# Webhook URL (REQUIRED)
+webhook_url = "https://your-webhook-url-here.com/webhook"
+
+# Allowed origin domain (defaults to mansaaurumcapital.com)
+# allowed_origin_domain = "mansaaurumcapital.com"
 
 # Optional: Override defaults if needed
 # region = "eu-west-2"
-# postfix_host = "172.245.43.43"
-# postfix_port = 25
-# smtp_use_tls = true
-# smtp_from_email = "noreply@mansaaurum.capital"
-# smtp_to_email = "contact@mansaaurum.capital"
+# api_gateway_name = "mansaaurum-contact-api"
+# lambda_function_name = "mansaaurum-contact-handler"
+# rate_limit = 10
+# burst_limit = 20

@@ -1,6 +1,6 @@
 output "api_gateway_url" {
   description = "API Gateway endpoint URL"
-  value       = "${aws_api_gateway_deployment.contact_api_deployment.invoke_url}/contact"
+  value       = "${aws_api_gateway_stage.contact_api_stage.invoke_url}/contact"
 }
 
 output "api_gateway_id" {

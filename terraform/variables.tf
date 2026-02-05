@@ -28,46 +28,14 @@ variable "lambda_function_name" {
   default     = "mansaaurum-contact-handler"
 }
 
-variable "postfix_host" {
-  description = "Postfix server hostname"
+variable "webhook_url" {
+  description = "Webhook URL to send form data to"
   type        = string
-  default     = "172.245.43.43"
-}
-
-variable "postfix_port" {
-  description = "Postfix server port"
-  type        = number
-  default     = 25
-}
-
-variable "smtp_from_email" {
-  description = "From email address for SMTP"
-  type        = string
-  default     = "noreply@mansaaurum.capital"
-}
-
-variable "smtp_to_email" {
-  description = "To email address for receiving form submissions"
-  type        = string
-  default     = "contact@mansaaurum.capital"
-}
-
-variable "smtp_username" {
-  description = "SMTP username for authentication"
-  type        = string
-  default     = ""
   sensitive   = true
 }
 
-variable "smtp_password" {
-  description = "SMTP password for authentication"
+variable "allowed_origin_domain" {
+  description = "Allowed origin domain for CORS (e.g., mansaaurumcapital.com)"
   type        = string
-  default     = ""
-  sensitive   = true
-}
-
-variable "smtp_use_tls" {
-  description = "Use TLS for SMTP connection"
-  type        = bool
-  default     = false
+  default     = "mansaaurumcapital.com"
 }

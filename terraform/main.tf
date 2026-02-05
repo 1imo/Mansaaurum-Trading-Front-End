@@ -20,12 +20,33 @@ resource "aws_api_gateway_rest_api" "contact_api" {
   endpoint_configuration {
     types = ["REGIONAL"]
   }
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = "*"
+        Action = "execute-api:Invoke"
+        Resource = "*"
+        Condition = {
+          StringLike = {
+            "aws:Referer" = [
+              "https://${var.allowed_origin_domain}/*",
+              "https://www.${var.allowed_origin_domain}/*",
+              "http://${var.allowed_origin_domain}/*",
+              "http://www.${var.allowed_origin_domain}/*"
+            ]
+          }
+        }
+      }
+    ]
+  })
 }
 
 # API Gateway Deployment
 resource "aws_api_gateway_deployment" "contact_api_deployment" {
   rest_api_id = aws_api_gateway_rest_api.contact_api.id
-  stage_name  = "prod"
 
   depends_on = [
     aws_api_gateway_method.contact_post,
@@ -120,7 +141,7 @@ resource "aws_api_gateway_integration_response" "contact_integration_response" {
   status_code = aws_api_gateway_method_response.contact_post_response.status_code
 
   response_parameters = {
-    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+    "method.response.header.Access-Control-Allow-Origin" = "'https://${var.allowed_origin_domain}'"
   }
 
   depends_on = [aws_api_gateway_integration.contact_integration]
@@ -170,7 +191,7 @@ resource "aws_api_gateway_integration_response" "contact_options_integration_res
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
     "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'https://${var.allowed_origin_domain}'"
   }
 
   depends_on = [aws_api_gateway_integration.contact_options_integration]
@@ -181,7 +202,7 @@ resource "aws_lambda_function" "contact_handler" {
   filename      = "lambda_function.zip"
   function_name = var.lambda_function_name
   role          = aws_iam_role.lambda_role.arn
-  handler       = "lambda_function.lambda_handler"
+  handler       = "lambda.lambda_handler"
   runtime       = "python3.11"
   timeout       = 30
 
@@ -189,13 +210,8 @@ resource "aws_lambda_function" "contact_handler" {
 
   environment {
     variables = {
-      POSTFIX_HOST    = var.postfix_host
-      POSTFIX_PORT    = tostring(var.postfix_port)
-      SMTP_FROM_EMAIL = var.smtp_from_email
-      SMTP_TO_EMAIL   = var.smtp_to_email
-      SMTP_USERNAME   = var.smtp_username
-      SMTP_PASSWORD   = var.smtp_password
-      SMTP_USE_TLS    = tostring(var.smtp_use_tls)
+      WEBHOOK_URL         = var.webhook_url
+      ALLOWED_ORIGIN      = "https://${var.allowed_origin_domain}"
     }
   }
 }
@@ -251,6 +267,6 @@ resource "aws_iam_role_policy" "lambda_policy" {
 # Archive Lambda function
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_file = "${path.module}/lambda_function.py"
+  source_file = "${path.module}/lambda.py"
   output_path = "${path.module}/lambda_function.zip"
 }
